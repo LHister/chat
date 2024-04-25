@@ -1,0 +1,78 @@
+*{
+    padding: 0;
+    margin: 0 0;
+}
+
+:root{
+    --dark-color: #19283f;
+    --font-color: #fff;
+}
+
+#naviga{
+    background-color: var(--dark-color);
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-link{
+    color: #fff;
+}
+
+.navbar-toggler{
+    color: #fff;
+}
+
+.navbar-brand{
+    color: #fff; 
+}
+
+.navbar-brand i{
+    font-size: 1.2em;
+    margin-right: 0.3em;
+}
+
+.navbar-brand:hover,.nav-link:hover{
+    color: red;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    height: 20em;
+}
+
+.card-body form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card-body form .form-group label{
+    margin-bottom: 1.5em;
+}
+
+.card-body form button{
+    margin-top: 1.5em;
+}
+
+.card-title{
+    display: flex;
+    align-self: center;
+    margin-bottom: 3em;
+}
+
+section{
+    min-width: 100%;
+    min-height: 85vh;
+}
+
+#edn{
+    font-size: 0.8;
+}
+
+@media (max-width:650) {
+    #edn{
+        margin-left: 0;
+        font-size: 0.8em;
+    }
+}

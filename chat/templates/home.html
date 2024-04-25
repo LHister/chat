@@ -1,0 +1,87 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{%static '/css/all.min.css'%}">
+        <link rel="stylesheet" href="{%static 'css/style.css'%}">
+        <title>MonsTer Chat</title>
+    </head>
+    <body>
+        <section class="main">
+            <section class="hdr">
+                <span><i class="far fa-message"></i>Messages</span>
+                <a href="https://oggo.lovestoblog.com" target="_blank" id="srv">OGGO</a>
+                <div id="jtmarg">
+                    <button id="language">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button  id="language">
+                        <i class="fas fa-bell"></i>
+                    </button>
+                </div>
+            </section>
+            <section class="content">
+                <div class="chat-title">
+                    <h1>MonsTer chat</h1>
+                    <div class="gret"></div>
+                    <div class="dates">....|{{time}}|....</div>
+                </div>
+                <div class="chat-container">
+                    <div class="message-container" id="messageContainer" style="margin-left: 1em;border:none;">
+                        {%for i in msg_list%}
+                            <p class="icreated" style="padding-left: 40%;">
+                                {{i.created|timesince}},ago
+                            </p>
+                            <p id="sedr">
+                                <i class="far fa-circle-user" id="usri"></i>
+                                <span id="seyd">  {{i.sender}}:</span>
+                            </p>
+                            <div class="mesge">
+                                <p class="jto">
+                                    {{i.message}}                               
+                                </p>
+                            </div>
+                            <span>
+                                {{i.created}}
+                                <i class="fas fa-circle-check"></i>
+                            </span>
+                        {%endfor%}                
+                    </div>
+                    <form id="uploadForm" class="input-container" action="{% url 'home' %}" method="POST" enctype="multipart/form-data" style="border-top: 2px solid blue;">
+                        {% csrf_token %}
+                        <input type="text" name="msg" id="messageInput" placeholder="Type a message...">
+                        <button id="subt" type="submit"><i class="far fa-paper-plane"></i></button>
+                        <button id="cls" class="inimg"><i class="far fa-trash-can"></i></button>
+                        <label for="file-input" id="inimg">
+                            <input type="file" id="file-input" name="file-input" style="display: none;">
+                            <i id="sil" class="far fa-image"></i>
+                        </label>
+                        <button id="ref" class="inimg" type="submit"><i class="fas fa-arrow-rotate-left"></i></button>
+                    </form>                    
+                </div>
+            </section>
+        </section>
+        <section class="footer">
+            <p class="ft">
+                <span>
+                    @CopyRights|
+                </span>
+                MonsTer
+            </p>
+            <a href="https://oggo.lovestoblog.com" target="_blank" id="srvfo">
+                <span>
+                    OGGO|
+                </span>
+                Free
+            </a>
+            <p class="lv">
+                Made With Love ❤️ 
+            </p>
+        </section>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{%static '/js/all.min.js'%}"></script>
+    <script src="{%static '/js/script.js'%}"></script>
+</html>
